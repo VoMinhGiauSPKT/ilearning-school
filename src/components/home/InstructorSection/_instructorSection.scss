@@ -1,0 +1,227 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.instructor-section {
+  width: 100%;
+  padding: 80px 0 60px;
+  display: flex;
+  justify-content: center;
+
+  .instructor-container {
+    width: 100%;
+    max-width: 1840px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .instructor-main-card {
+    width: 1479px;
+    max-width: 100%;
+    min-height: 748px;
+    background-color: #090C0F;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 100px 85px 120px 85px;
+    gap: 83px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+    margin-top: 45px;
+
+    @media (max-width: 1550px) {
+      width: 100%;
+      padding: 70px 50px 110px;
+      gap: 50px;
+    }
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto;
+      padding: 50px 35px 120px;
+      gap: 40px;
+    }
+
+    /* Left Photo Box: 500px x 500px, bg #202428, radius 10px */
+    .instructor-photo-box {
+      width: 500px;
+      height: 500px;
+      background-color: #202428;
+      border-radius: 10px;
+      flex-shrink: 0;
+
+      @media (max-width: 1400px) {
+        width: 420px;
+        height: 420px;
+      }
+
+      @media (max-width: 1200px) {
+        width: 100%;
+        max-width: 480px;
+        height: 400px;
+      }
+    }
+
+    /* Right Info Box: width 726px */
+    .instructor-info-box {
+      flex: 1;
+      max-width: 726px;
+      display: flex;
+      flex-direction: column;
+
+      @media (max-width: 1200px) {
+        max-width: 100%;
+      }
+
+      .quote-icon {
+        margin-bottom: 26px;
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 34px;
+          height: 26px;
+        }
+      }
+
+      .instructor-quote-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 35px;
+
+        .quote-para {
+          font-family: 'SF Pro Display', $font-family;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.7;
+          color: #AEAEAE;
+          margin: 0;
+
+          @media (max-width: 1400px) {
+            font-size: 16px;
+            line-height: 1.6;
+          }
+        }
+      }
+
+      .instructor-identity {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .instructor-name {
+          font-family: 'SF Pro Display', $font-family;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 1.2;
+          color: #AEAEAE;
+          margin: 0;
+
+          @media (max-width: 1400px) {
+            font-size: 26px;
+          }
+        }
+
+        .instructor-role {
+          font-family: 'SF Pro Display', $font-family;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 26px;
+          line-height: 1.3;
+          color: #AEAEAE;
+
+          @media (max-width: 1400px) {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+
+    /* Slider Dots (12px circles, active #15CCA3, inactive #AEAEAE) */
+    .slider-dots {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #AEAEAE;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color $transition-fast, transform $transition-fast;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &.active {
+          background-color: #15CCA3;
+        }
+      }
+    }
+
+    /* Slider Arrows (56.5px square rounded buttons) */
+    .slider-arrows {
+      position: absolute;
+      bottom: 35px;
+      right: 65px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      .arrow-btn {
+        width: 56.5px;
+        height: 56.5px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &.is-active {
+          background-color: #15CCA3;
+          border: 2.5px solid #FFFFFF;
+          color: #FFFFFF;
+
+          &:hover:not(:disabled) {
+            background-color: #1be5b7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(21, 204, 163, 0.4);
+          }
+        }
+
+        &.is-initial {
+          background-color: transparent;
+          border: 2.5px solid #AEAEAE;
+          color: #AEAEAE;
+
+          &:hover:not(:disabled) {
+            border-color: #FFFFFF;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+          }
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+}

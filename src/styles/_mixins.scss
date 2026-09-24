@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+// Flexbox Helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Glassmorphism card
+@mixin glass-card {
+  background-color: $bg-card;
+  border: 1px solid $border-card;
+  border-radius: $radius-lg;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: rgba(0, 223, 154, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+}

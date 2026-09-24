@@ -1,0 +1,186 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.curriculum-accordion-box {
+  width: 100%;
+  max-width: 1440px;
+  background-color: #090C0F;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 50px 50px 65px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  margin-top: 40px;
+  animation: slideDownFade 0.35s ease forwards;
+
+  @keyframes slideDownFade {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Title "Giáo trình" (font-size: 35px, font-weight: 500, color: #FFFFFF) */
+  .curriculum-title {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 38px;
+    letter-spacing: -0.3px;
+  }
+
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  /* Accordion Item: bg #202428, radius 20px */
+  .accordion-item {
+    width: 100%;
+    background-color: #202428;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: background-color $transition-fast, box-shadow $transition-fast;
+
+    &:hover {
+      background-color: #252b30;
+    }
+  }
+
+  .accordion-header {
+    width: 100%;
+    min-height: 110px;
+    padding: 24px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+
+    .item-title {
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+      flex: 1;
+    }
+
+    .header-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-shrink: 0;
+
+      /* Badge "5 buổi": 107px x 54px, bg #15CCA3, radius 10px */
+      .sessions-badge {
+        width: 107px;
+        height: 54px;
+        background-color: #15CCA3;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        color: #ffffff;
+      }
+
+      /* Plus / Minus Icon (40px lines) */
+      .accordion-toggle-icon {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon-line {
+          background-color: #ffffff;
+          position: absolute;
+          transition: transform $transition-fast, opacity $transition-fast;
+        }
+
+        .line-horizontal {
+          width: 40px;
+          height: 1.5px;
+        }
+
+        .line-vertical {
+          height: 40px;
+          width: 1.5px;
+        }
+      }
+    }
+  }
+
+  /* Body (when open) */
+  .accordion-body {
+    padding: 0 36px 36px;
+
+    .lesson-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .lesson-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 38px;
+        letter-spacing: 0.02em;
+        color: #ffffff;
+
+        .lesson-dash {
+          color: #ffffff;
+          font-weight: 400;
+        }
+
+        .lesson-text {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  /* Bottom Button "Đăng ký ngay": 230px x 80px, bg #15CCA3, radius 20px */
+  .curriculum-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+
+    .curriculum-register-btn {
+      width: 230px;
+      height: 80px;
+      background-color: #15CCA3;
+      border-radius: 20px;
+      border: none;
+      font-size: 25px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 22px rgba(21, 204, 163, 0.35);
+      transition: all $transition-fast;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1be5b7;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(21, 204, 163, 0.5);
+      }
+    }
+  }
+}

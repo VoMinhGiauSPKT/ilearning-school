@@ -1,0 +1,133 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.video-showcase-section {
+  width: 100%;
+  padding: 60px 0 50px;
+  display: flex;
+  justify-content: center;
+
+  .video-outer-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1840px;
+    padding: 0 20px;
+  }
+
+  /* 1170px x 658.06px Frame */
+  .video-player-frame {
+    position: relative;
+    width: 100%;
+    max-width: 1170px;
+    aspect-ratio: 1170 / 658.06;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    background-color: #0d1726;
+
+    .video-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Floating Pill Player Bar (1090px x 42px, radius 47px, bg rgba(54,54,54,0.39), blur 20px) */
+    .video-floating-bar {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+      max-width: 1090px;
+      height: 42px;
+      background: rgba(54, 54, 54, 0.39);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 47px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 16px;
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+      .time-text {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+        letter-spacing: 0.3px;
+      }
+
+      /* Progress Bar Track (width 804px in 1090px bar) */
+      .player-progress-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        height: 24px;
+      }
+
+      .player-progress-track {
+        width: 100%;
+        height: 7px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 15px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .player-progress-fill {
+        height: 7.54px;
+        background: #15CCA3;
+        border-radius: 12px 0 0 12px;
+        position: relative;
+      }
+
+      .player-progress-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background: #15CCA3;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(21, 204, 163, 0.7);
+        transition: transform 0.15s ease;
+
+        &:hover {
+          transform: translate(-50%, -50%) scale(1.15);
+        }
+      }
+
+      /* Right Action Icons */
+      .player-actions-group {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-left: 6px;
+
+        .player-action-btn {
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+          transition: color 0.15s ease, transform 0.15s ease;
+          opacity: 0.9;
+
+          &:hover {
+            color: #15CCA3;
+            opacity: 1;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}

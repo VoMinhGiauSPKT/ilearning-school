@@ -1,0 +1,112 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.partners-section {
+  width: 100%;
+  padding: 80px 0 100px;
+  display: flex;
+  justify-content: center;
+
+  .partners-container {
+    width: 100%;
+    max-width: 1840px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partners-card-banner {
+    width: 1440px;
+    max-width: 100%;
+    background-color: #090C0F;
+    border-radius: 10px;
+    padding: 75px 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+    margin-top: 45px;
+    position: relative;
+
+    @media (max-width: 1450px) {
+      width: 100%;
+      padding: 60px 28px;
+    }
+
+    /* Circular Navigation Buttons: 56.67px x 56.67px, radius 33px */
+    .nav-btn {
+      width: 56.67px;
+      height: 56.67px;
+      border-radius: 50%;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all $transition-fast;
+
+      &.nav-btn-left {
+        background-color: #15CCA3;
+
+        &:hover {
+          background-color: #2e353c;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.nav-btn-right {
+        background-color: #15CCA3;
+
+        &:hover {
+          background-color: #1be5b7;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(21, 204, 163, 0.45);
+        }
+      }
+    }
+
+    /* Logos Row: Frame 13399, gap 90px */
+    .partners-logos-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 90px;
+      flex: 1;
+      padding: 0 20px;
+
+      @media (max-width: 1400px) {
+        gap: 50px;
+      }
+
+      @media (max-width: 1100px) {
+        gap: 32px;
+      }
+
+      .partner-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform $transition-fast;
+
+        &:hover {
+          transform: scale(1.06);
+        }
+
+        .partner-logo-img {
+          max-width: 180px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+
+          @media (max-width: 1300px) {
+            max-width: 140px;
+          }
+        }
+      }
+    }
+  }
+}
