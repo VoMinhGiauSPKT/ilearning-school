@@ -35,10 +35,10 @@
       padding: 60px 28px;
     }
 
-    /* Circular Navigation Buttons: 56.67px x 56.67px, radius 33px */
+    /* Circular Navigation Buttons: 56px x 56px, circle */
     .nav-btn {
-      width: 56.67px;
-      height: 56.67px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       border: none;
       display: inline-flex;
@@ -83,7 +83,12 @@
       }
 
       @media (max-width: 1100px) {
-        gap: 32px;
+        gap: 24px 32px;
+        flex-wrap: wrap;
+
+        .partner-item .partner-logo-img {
+          max-width: 120px;
+        }
       }
 
       .partner-item {
@@ -104,6 +109,39 @@
 
           @media (max-width: 1300px) {
             max-width: 140px;
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 36px 0 50px;
+
+    .partners-container {
+      padding: 0 12px;
+    }
+
+    .partners-card-banner {
+      padding: 24px 14px;
+      margin-top: 18px;
+      gap: 16px;
+
+      .nav-btn {
+        display: none;
+      }
+
+      .partners-logos-wrap {
+        padding: 0;
+        gap: 20px 24px;
+        flex-wrap: wrap;
+
+        .partner-item {
+          flex: 0 0 calc(50% - 16px);
+
+          .partner-logo-img {
+            max-width: 100px;
+            max-height: 38px !important;
           }
         }
       }

@@ -83,7 +83,7 @@
       }
 
       .player-progress-fill {
-        height: 7.54px;
+        height: 7px;
         background: #15CCA3;
         border-radius: 12px 0 0 12px;
         position: relative;
@@ -125,6 +125,94 @@
             color: #15CCA3;
             opacity: 1;
             transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 16px 0 0;
+
+    .video-outer-container {
+      padding: 0 12px;
+    }
+
+    /* Figma Group 427321632 & Rectangle 12335: 390px x 220px, radius 8px */
+    .video-player-frame {
+      width: 100%;
+      max-width: 390px;
+      aspect-ratio: 390 / 220;
+      border-radius: 8px;
+
+      /* Figma Group 427321610 & Rectangle 469: 363px x 26px, pill radius, blur 18px */
+      .video-floating-bar {
+        bottom: 14px;
+        width: calc(100% - 28px);
+        max-width: 363px;
+        height: 26px;
+        background: rgba(54, 54, 54, 0.39);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-radius: 999px;
+        padding: 0 14px;
+        gap: 10px;
+
+        /* Time text current: 10px */
+        .time-text.current-time {
+          font-size: 10px;
+          line-height: 1;
+          color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* In mobile Figma, total-time is omitted to allow 225px player bar */
+        .time-text.total-time {
+          display: none;
+        }
+
+        /* Player Progress Bar */
+        .player-progress-container {
+          height: 16px;
+        }
+
+        /* Figma Rectangle 456: height 4px, radius 10px */
+        .player-progress-track {
+          height: 4px;
+          background: rgba(255, 255, 255, 0.6);
+          border-radius: 10px;
+        }
+
+        /* Figma Rectangle 457: height 4px, radius 10px 0 0 10px */
+        .player-progress-fill {
+          height: 4px;
+          border-radius: 10px 0 0 10px;
+        }
+
+        /* Figma Ellipse 57: 16px x 16px, circle */
+        .player-progress-thumb {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          box-shadow: 0 0 6px rgba(21, 204, 163, 0.7);
+        }
+
+        /* Figma Group 427320285: width 48px x 16px */
+        .player-actions-group {
+          margin-left: 0;
+          gap: 6px;
+
+          .player-action-btn {
+            padding: 0;
+
+            svg {
+              width: 14px;
+              height: 14px;
+            }
+
+            /* Hide settings icon on mobile to match the 2-vector group in Figma */
+            &:first-child {
+              display: none;
+            }
           }
         }
       }

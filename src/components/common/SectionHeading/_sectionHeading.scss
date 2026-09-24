@@ -34,4 +34,17 @@
     color: #ffffff;
     letter-spacing: -0.2px;
   }
+
+  @include mobile {
+    margin-bottom: 20px;
+
+    .section-subtitle {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+    }
+  }
 }

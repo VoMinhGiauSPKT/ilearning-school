@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
 body {
   font-family: $font-family;
   background-color: $bg-main;
@@ -15,7 +23,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
+  position: relative;
 }
 
 a {

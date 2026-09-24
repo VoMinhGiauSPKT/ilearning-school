@@ -183,4 +183,144 @@
       }
     }
   }
+
+  @media (max-width: 1100px) {
+    padding: 30px 24px 40px;
+    margin-top: 24px;
+
+    .curriculum-title {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .accordion-header {
+      min-height: 80px;
+      padding: 18px 24px;
+      gap: 16px;
+
+      .item-title {
+        font-size: 20px;
+      }
+
+      .header-right-controls {
+        gap: 20px;
+
+        .sessions-badge {
+          width: 85px;
+          height: 42px;
+          font-size: 18px;
+        }
+
+        .accordion-toggle-icon {
+          width: 30px;
+          height: 30px;
+
+          .line-horizontal {
+            width: 30px;
+          }
+
+          .line-vertical {
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .accordion-body {
+      padding: 0 24px 24px;
+
+      .lesson-list .lesson-item {
+        font-size: 17px;
+        line-height: 30px;
+      }
+    }
+
+    .curriculum-action {
+      margin-top: 35px;
+
+      .curriculum-register-btn {
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 20px 14px 28px;
+    border-radius: 12px;
+    margin-top: 16px;
+
+    .curriculum-title {
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .accordion-list {
+      gap: 12px;
+    }
+
+    .accordion-item {
+      border-radius: 10px;
+    }
+
+    .accordion-header {
+      min-height: 56px;
+      padding: 14px 16px;
+      gap: 12px;
+
+      .item-title {
+        font-size: 15px;
+      }
+
+      .header-right-controls {
+        gap: 12px;
+
+        .sessions-badge {
+          display: none;
+        }
+
+        .accordion-toggle-icon {
+          width: 24px;
+          height: 24px;
+
+          .line-horizontal {
+            width: 20px;
+            height: 1.5px;
+          }
+
+          .line-vertical {
+            height: 20px;
+            width: 1.5px;
+          }
+        }
+      }
+    }
+
+    .accordion-body {
+      padding: 0 16px 16px;
+
+      .lesson-list {
+        gap: 6px;
+
+        .lesson-item {
+          font-size: 13.5px;
+          line-height: 22px;
+          gap: 8px;
+        }
+      }
+    }
+
+    .curriculum-action {
+      margin-top: 24px;
+
+      .curriculum-register-btn {
+        width: 100%;
+        max-width: 320px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+    }
+  }
 }

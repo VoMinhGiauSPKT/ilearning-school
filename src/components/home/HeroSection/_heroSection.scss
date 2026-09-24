@@ -6,6 +6,29 @@
   padding: 26px 26px 0;
   display: flex;
   justify-content: center;
+
+  @include tablet {
+    display: none !important;
+  }
+
+  @include desktop-compact {
+    padding: 16px 16px 0;
+
+    .hero-slider-banner {
+      min-height: 520px;
+      padding: 50px 40px;
+
+      .hero-title {
+        font-size: 38px;
+        margin-bottom: 16px;
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+        margin-bottom: 24px;
+      }
+    }
+  }
 }
 
 .hero-slider-banner {

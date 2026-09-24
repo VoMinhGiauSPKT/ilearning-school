@@ -58,4 +58,71 @@
       opacity: 0.95;
     }
   }
+
+  @include mobile {
+    padding: 26px 0 30px;
+
+    .callout-container {
+      padding: 0 12px;
+    }
+
+    /* Figma Group 3 & Rectangle 8: 390px x 337px, radius 10px, bg #15CCA3 */
+    .callout-box {
+      width: 100%;
+      max-width: 390px;
+      min-height: 337px;
+      padding: 28px 24px;
+      border-radius: 10px;
+
+      /* Figma inner text wrap: width 342px x 281px, left 36px, top 398px */
+      .callout-content-wrap {
+        width: 100%;
+        max-width: 342px;
+        text-align: center;
+      }
+
+      /* Figma text specs: SF Pro Display, bold, 24px, line-height 150% (36px), center, #FFFFFF */
+      .callout-title {
+        font-family: 'SF Pro Display', $font-family;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 140%;
+        color: #ffffff;
+        margin-bottom: 14px;
+        letter-spacing: -0.3px;
+        text-align: center;
+      }
+
+      .callout-desc {
+        font-family: 'SF Pro Display', $font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 155%;
+        color: #ffffff;
+        opacity: 0.95;
+        text-align: center;
+      }
+    }
+  }
+
+  @include mobile-small {
+    padding: 20px 0 24px;
+
+    .callout-box {
+      padding: 20px 14px;
+      min-height: auto;
+
+      .callout-title {
+        font-size: clamp(17px, 5.5vw, 20px);
+        margin-bottom: 10px;
+      }
+
+      .callout-desc {
+        font-size: 13.5px;
+        line-height: 150%;
+      }
+    }
+  }
 }

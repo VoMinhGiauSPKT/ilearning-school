@@ -1,0 +1,210 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.mobile-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s ease-out;
+
+  .mobile-drawer-content {
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: #090C0F;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.75);
+    animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    position: relative;
+    z-index: 100000;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .drawer-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.2px;
+    }
+
+    .drawer-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #AEAEAE;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: #FFFFFF;
+        background: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+
+  /* Mobile Search */
+  .drawer-search {
+    width: 100%;
+    height: 48px;
+    background-color: #11161B;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    margin-bottom: 24px;
+    transition: border-color $transition-fast;
+
+    &:focus-within {
+      border-color: rgba(21, 204, 163, 0.5);
+    }
+
+    .search-icon {
+      color: #71717A;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+
+      &::placeholder {
+        color: #71717A;
+      }
+    }
+  }
+
+  /* Nav Links */
+  .drawer-nav {
+    flex: 1;
+
+    .drawer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .drawer-nav-item {
+      width: 100%;
+    }
+
+    .drawer-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #AEAEAE;
+      transition: all $transition-fast;
+
+      &:hover,
+      &.active {
+        color: #FFFFFF;
+        background-color: rgba(21, 204, 163, 0.1);
+      }
+
+      .dropdown-arrow {
+        color: #71717A;
+      }
+    }
+  }
+
+  /* Auth Actions */
+  .drawer-auth-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: auto;
+
+    .drawer-login-link {
+      flex: 1;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: transparent;
+      color: #AEAEAE;
+      font-size: 15px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .drawer-sign-btn {
+      flex: 1;
+      height: 44px;
+      border-radius: 8px;
+      background-color: #15CCA3;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: #1be5b7;
+        box-shadow: 0 4px 14px rgba(21, 204, 163, 0.4);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

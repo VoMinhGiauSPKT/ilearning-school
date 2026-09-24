@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Search, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown, Menu } from 'lucide-react';
 import { navLinks } from '../../data/homeData';
 import logoSvg from '../../assets/logo/logo.svg';
+import Button from '../../components/common/Button/Button';
+import MobileDrawer from './components/MobileDrawer';
 import './_header.scss';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="site-header">
@@ -56,12 +59,36 @@ export default function Header() {
             <a href="#" className="login-link">
               Log In
             </a>
-            <button className="sign-btn">
+            <Button variant="outline" shape="square" className="sign-btn">
               SIGN
-            </button>
+            </Button>
           </div>
         </div>
+
+        {/* Mobile Actions: "Liên hệ tư vấn" + Hamburger Menu */}
+        <div className="mobile-header-actions">
+          <Button variant="primary" shape="square" className="mobile-consult-btn">
+            Liên hệ tư vấn
+          </Button>
+          <Button
+            variant="primary"
+            shape="square"
+            className="mobile-hamburger-btn"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
+            icon={<Menu size={22} color="#FFFFFF" strokeWidth={2.5} />}
+          />
+        </div>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      <MobileDrawer
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        navLinks={navLinks}
+      />
     </header>
   );
 }
