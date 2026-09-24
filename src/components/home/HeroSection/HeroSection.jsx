@@ -1,7 +1,12 @@
-import Button from '../../common/Button/Button';
+import useIsMobile from '@/hooks/useIsMobile';
+import Button from '@/components/common/Button/Button';
 import './_heroSection.scss';
 
 export default function HeroSection() {
+  const isMobile = useIsMobile(1024);
+
+  if (isMobile) return null;
+
   return (
     <section className="hero-section-container">
       <div className="hero-slider-banner">

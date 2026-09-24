@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Search, ChevronDown } from 'lucide-react';
-import Button from '../../../components/common/Button/Button';
+import Button from '@/components/common/Button/Button';
 import './_mobileDrawer.scss';
 
 export default function MobileDrawer({

@@ -1,0 +1,54 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.mobile-partners-section {
+  width: 100%;
+  padding: 36px 0 50px;
+  display: flex;
+  justify-content: center;
+
+  .mobile-partners-container {
+    width: 100%;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-partners-card-banner {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 10px;
+    padding: 24px 14px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    .mobile-partners-logos-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 24px;
+
+      .mobile-partner-item {
+        flex: 0 0 calc(50% - 16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .mobile-partner-logo-img {
+          max-width: 100px;
+          max-height: 38px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.mobile-courses-section {
+  width: 100%;
+  padding: 24px 0 30px;
+  display: flex;
+  justify-content: center;
+
+  .mobile-courses-container {
+    width: 100%;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-courses-list-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 18px;
+  }
+
+  .mobile-course-list-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-courses-bottom-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 28px;
+
+    .mobile-all-courses-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 14px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}

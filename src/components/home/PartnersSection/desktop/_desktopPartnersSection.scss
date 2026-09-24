@@ -1,7 +1,7 @@
-@use '../../../styles/variables' as *;
-@use '../../../styles/mixins' as *;
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
-.partners-section {
+.desktop-partners-section {
   width: 100%;
   padding: 80px 0 100px;
   display: flex;
@@ -19,7 +19,7 @@
   .partners-card-banner {
     width: 1440px;
     max-width: 100%;
-    background-color: #090C0F;
+    background-color: #090c0f;
     border-radius: 10px;
     padding: 75px 38px;
     display: flex;
@@ -35,7 +35,7 @@
       padding: 60px 28px;
     }
 
-    /* Circular Navigation Buttons: 56px x 56px, circle */
+    /* Circular Navigation Buttons: 56px x 56px */
     .nav-btn {
       width: 56px;
       height: 56px;
@@ -49,7 +49,7 @@
       transition: all $transition-fast;
 
       &.nav-btn-left {
-        background-color: #15CCA3;
+        background-color: #15cca3;
 
         &:hover {
           background-color: #2e353c;
@@ -58,7 +58,7 @@
       }
 
       &.nav-btn-right {
-        background-color: #15CCA3;
+        background-color: #15cca3;
 
         &:hover {
           background-color: #1be5b7;
@@ -68,7 +68,7 @@
       }
     }
 
-    /* Logos Row: Frame 13399, gap 90px */
+    /* Logos Row: gap 90px */
     .partners-logos-wrap {
       display: flex;
       flex-direction: row;
@@ -109,39 +109,6 @@
 
           @media (max-width: 1300px) {
             max-width: 140px;
-          }
-        }
-      }
-    }
-  }
-
-  @include mobile {
-    padding: 36px 0 50px;
-
-    .partners-container {
-      padding: 0 12px;
-    }
-
-    .partners-card-banner {
-      padding: 24px 14px;
-      margin-top: 18px;
-      gap: 16px;
-
-      .nav-btn {
-        display: none;
-      }
-
-      .partners-logos-wrap {
-        padding: 0;
-        gap: 20px 24px;
-        flex-wrap: wrap;
-
-        .partner-item {
-          flex: 0 0 calc(50% - 16px);
-
-          .partner-logo-img {
-            max-width: 100px;
-            max-height: 38px !important;
           }
         }
       }

@@ -1,0 +1,137 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.mobile-video-showcase-section {
+  width: 100%;
+  padding: 16px 0 0;
+  display: flex;
+  justify-content: center;
+
+  .mobile-video-container {
+    width: 100%;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Figma Group 427321632 & Rectangle 12335: 390px x 220px, radius 8px */
+  .mobile-video-player-frame {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    aspect-ratio: 390 / 220;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #0d1726;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+
+    .mobile-video-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Figma Group 427321610 & Rectangle 469: 363px x 26px, pill radius, blur 18px */
+    .mobile-video-floating-bar {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 363px;
+      height: 26px;
+      background: rgba(54, 54, 54, 0.39);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 10px;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+      .mobile-time-text {
+        font-size: 10px;
+        line-height: 1;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+      }
+
+      /* Player Progress Bar */
+      .mobile-player-progress-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        height: 16px;
+      }
+
+      /* Figma Rectangle 456: height 4px, radius 10px */
+      .mobile-player-progress-track {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Figma Rectangle 457: height 4px, radius 10px 0 0 10px */
+      .mobile-player-progress-fill {
+        height: 4px;
+        background: #15cca3;
+        border-radius: 10px 0 0 10px;
+        position: relative;
+      }
+
+      /* Figma Ellipse 57: 16px x 16px, circle */
+      .mobile-player-progress-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background: #15cca3;
+        border-radius: 50%;
+        box-shadow: 0 0 6px rgba(21, 204, 163, 0.7);
+      }
+
+      /* Figma Group 427320285: 2 buttons (Subtitles & Maximize) */
+      .mobile-player-actions-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .mobile-player-action-btn {
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          opacity: 0.9;
+          transition: color 0.15s ease;
+
+          &:hover {
+            color: #15cca3;
+            opacity: 1;
+          }
+
+          svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

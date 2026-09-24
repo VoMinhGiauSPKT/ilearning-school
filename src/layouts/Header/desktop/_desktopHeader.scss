@@ -1,7 +1,7 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
-.site-header {
+.desktop-site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -26,7 +26,7 @@
     gap: 30px;
   }
 
-  /* Left Side: Logo & Search Box */
+  /* Left: Logo & Search */
   .header-left {
     display: flex;
     align-items: center;
@@ -34,7 +34,6 @@
     flex-shrink: 0;
   }
 
-  /* Brand Logo */
   .brand-logo {
     display: flex;
     align-items: center;
@@ -74,7 +73,7 @@
     }
   }
 
-  /* Search Bar (460px x 60px, radius 10px, bg #090C0F) */
+  /* Search Bar (460px x 60px) */
   .header-search {
     position: relative;
     width: 460px;
@@ -159,7 +158,6 @@
     }
   }
 
-  /* Vertical Divider (Line 1: 24px) */
   .header-divider {
     width: 1px;
     height: 24px;
@@ -168,7 +166,6 @@
     flex-shrink: 0;
   }
 
-  /* Auth Group */
   .header-auth-group {
     display: flex;
     align-items: center;
@@ -187,7 +184,6 @@
       }
     }
 
-    /* SIGN Button (149px x 60px, bg #090C0F, radius 10px) */
     .sign-btn {
       width: 149px;
       height: 60px;
@@ -214,61 +210,7 @@
     }
   }
 
-  /* Mobile Actions (Hidden on Desktop) */
-  .mobile-header-actions {
-    display: none;
-
-    .mobile-consult-btn {
-      width: 124px;
-      height: 35px;
-      background: rgba(21, 204, 163, 0.2);
-      border-radius: 6px;
-      border: none;
-      color: #FFFFFF;
-      font-family: 'SF Pro Display', $font-family;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 19px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all $transition-fast;
-      white-space: nowrap;
-
-      &:hover {
-        background: rgba(21, 204, 163, 0.35);
-      }
-    }
-
-    .mobile-hamburger-btn {
-      width: 36px;
-      height: 35px;
-      background: #15CCA3;
-      border-radius: 6px;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all $transition-fast;
-      flex-shrink: 0;
-
-      svg {
-        width: 23px;
-        height: 23px;
-        display: block;
-      }
-
-      &:hover {
-        background: #1be5b7;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(21, 204, 163, 0.35);
-      }
-    }
-  }
-
-  /* Desktop Compact (1025px - 1280px, zoom ~125%-150%) */
+  /* Compact Desktop Scaling (1025px - 1380px) */
   @include desktop-compact {
     .header-container {
       padding: 0 20px;
@@ -311,83 +253,4 @@
       }
     }
   }
-
-  /* Tablet & Mobile Responsive (<= 1024px, zoom >= 150%) */
-  @include tablet {
-    height: 66px;
-
-    .header-container {
-      width: 100%;
-      padding: 0 16px;
-      gap: 10px;
-      justify-content: space-between;
-    }
-
-    /* Hide Desktop Elements */
-    .header-search,
-    .header-right,
-    .desktop-nav,
-    .header-divider,
-    .header-auth-group {
-      display: none !important;
-    }
-
-    /* Show Mobile Actions */
-    .mobile-header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    /* Mobile Brand Logo */
-    .brand-logo {
-      gap: 8px;
-
-      .brand-logo-img {
-        width: 44px;
-        height: 40px;
-      }
-
-      .logo-text {
-        .logo-main,
-        .logo-sub {
-          font-size: 19.2px;
-          line-height: 20px;
-        }
-      }
-    }
-  }
-
-  /* Ultra-small Mobile & Extreme Zoom (<= 380px, zoom 400%-500%) */
-  @include mobile-small {
-    .header-container {
-      padding: 0 10px;
-    }
-
-    /* Hide consult button to prevent wrapping on tiny screens, keeping hamburger */
-    .mobile-header-actions {
-      .mobile-consult-btn {
-        display: none;
-      }
-    }
-
-    .brand-logo {
-      gap: 6px;
-
-      .brand-logo-img {
-        width: 36px;
-        height: 32px;
-      }
-
-      .logo-text {
-        .logo-main,
-        .logo-sub {
-          font-size: 16px;
-          line-height: 17px;
-        }
-      }
-    }
-  }
 }
-

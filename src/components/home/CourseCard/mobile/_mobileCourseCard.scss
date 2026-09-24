@@ -1,0 +1,135 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.mobile-course-card {
+  width: 100%;
+  background-color: #090c0f;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px 20px;
+  gap: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+  .mobile-card-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #0d1726;
+
+    .mobile-course-artwork-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+
+  .mobile-card-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .mobile-course-title {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: #ffffff;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .mobile-course-price {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: #15cca3;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+
+    .mobile-course-benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+
+        .mobile-triangle-icon {
+          color: #15cca3;
+          font-size: 10px;
+          line-height: 20px;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+
+        .mobile-benefit-text {
+          font-size: 13.5px;
+          font-weight: 400;
+          line-height: 20px;
+          color: #aeaeae;
+        }
+      }
+    }
+
+    .mobile-card-footer-action {
+      display: flex;
+      align-items: center;
+
+      .mobile-see-more-btn {
+        width: auto;
+        min-width: 140px;
+        height: 42px;
+        padding: 0 20px;
+        background-color: #15cca3;
+        border-radius: 10px;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: underline;
+        color: #ffffff;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(21, 204, 163, 0.35);
+
+        .btn-chevron {
+          text-decoration: none;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  @include mobile-small {
+    padding: 14px 10px;
+
+    .mobile-card-info {
+      .mobile-course-title {
+        font-size: 16px;
+      }
+
+      .mobile-course-price {
+        font-size: 16px;
+      }
+
+      .mobile-course-benefits-list li .mobile-benefit-text {
+        font-size: 12.5px;
+      }
+
+      .mobile-card-footer-action .mobile-see-more-btn {
+        width: 100%;
+      }
+    }
+  }
+}

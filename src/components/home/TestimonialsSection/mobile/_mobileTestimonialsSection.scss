@@ -1,0 +1,102 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.mobile-testimonials-section {
+  width: 100%;
+  padding: 36px 0 24px;
+  display: flex;
+  justify-content: center;
+
+  .mobile-testimonials-container {
+    width: 100%;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-testimonials-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .mobile-testimonial-card {
+    width: 100%;
+    background-color: #090c0f;
+    border-radius: 10px;
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    .mobile-card-top-content {
+      display: flex;
+      flex-direction: column;
+
+      .quote-icon {
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 26px;
+          height: 20px;
+        }
+      }
+
+      .mobile-testimonial-text {
+        font-family: 'SF Pro Display', $font-family;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #aeaeae;
+        margin: 0;
+      }
+    }
+
+    .mobile-testimonial-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 18px;
+
+      .mobile-author-avatar-placeholder {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #202428;
+        flex-shrink: 0;
+      }
+
+      .mobile-author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .mobile-author-name {
+          font-family: 'SF Pro Display', $font-family;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 17px;
+          line-height: 1.2;
+          color: #aeaeae;
+        }
+
+        .mobile-author-location {
+          font-family: 'SF Pro Display', $font-family;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 1.2;
+          color: #aeaeae;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
+      }
+    }
+  }
+}
