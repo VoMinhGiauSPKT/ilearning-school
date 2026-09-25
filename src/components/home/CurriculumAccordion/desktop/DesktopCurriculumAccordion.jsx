@@ -1,18 +1,12 @@
-import { useState } from 'react';
 import Button from '@/components/common/Button/Button';
 import { curriculumStages } from '@/data/homeData';
 import './_desktopCurriculumAccordion.scss';
 
-export default function DesktopCurriculumAccordion({ stages = curriculumStages }) {
-  const [openStages, setOpenStages] = useState({});
-
-  const toggleStage = (id) => {
-    setOpenStages((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
+export default function DesktopCurriculumAccordion({
+  stages = curriculumStages,
+  openStages = {},
+  toggleStage,
+}) {
   return (
     <div className="desktop-curriculum-accordion-box">
       <h3 className="curriculum-title">Giáo trình</h3>
@@ -24,7 +18,7 @@ export default function DesktopCurriculumAccordion({ stages = curriculumStages }
             <div key={stage.id} className="accordion-item">
               <button
                 className="accordion-header"
-                onClick={() => toggleStage(stage.id)}
+                onClick={() => toggleStage && toggleStage(stage.id)}
                 aria-expanded={isOpen}
               >
                 <span className="item-title">{stage.title}</span>

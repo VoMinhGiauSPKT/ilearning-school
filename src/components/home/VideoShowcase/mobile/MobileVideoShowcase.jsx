@@ -1,18 +1,8 @@
-import { useState } from 'react';
 import { Subtitles, Maximize } from 'lucide-react';
 import videoThumb from '@/assets/VideoShowcase/videoshowcase.png';
 import './_mobileVideoShowcase.scss';
 
-export default function MobileVideoShowcase() {
-  const [progress, setProgress] = useState(24);
-
-  const handleTrackClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const newProgress = Math.max(0, Math.min(100, Math.round((clickX / rect.width) * 100)));
-    setProgress(newProgress);
-  };
-
+export default function MobileVideoShowcase({ progress = 24, handleTrackClick }) {
   return (
     <section className="mobile-video-showcase-section">
       <div className="mobile-video-container">

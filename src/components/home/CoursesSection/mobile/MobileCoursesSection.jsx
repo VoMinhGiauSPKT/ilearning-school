@@ -1,23 +1,14 @@
-import { useState } from 'react';
 import SectionHeading from '@/components/common/SectionHeading/SectionHeading';
 import CourseCard from '@/components/home/CourseCard/CourseCard';
 import CurriculumAccordion from '@/components/home/CurriculumAccordion/CurriculumAccordion';
 import Button from '@/components/common/Button/Button';
-import { coursesList } from '@/data/homeData';
 import './_mobileCoursesSection.scss';
 
-export default function MobileCoursesSection() {
-  const [expandedCourseIds, setExpandedCourseIds] = useState({
-    'course-1': true,
-  });
-
-  const toggleCourse = (id) => {
-    setExpandedCourseIds((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
+export default function MobileCoursesSection({
+  courses = [],
+  expandedCourseIds = {},
+  toggleCourse,
+}) {
   return (
     <section className="mobile-courses-section" id="courses">
       <div className="mobile-courses-container">
@@ -28,14 +19,14 @@ export default function MobileCoursesSection() {
         />
 
         <div className="mobile-courses-list-wrap">
-          {coursesList.map((course) => {
+          {courses.map((course) => {
             const isExpanded = !!expandedCourseIds[course.id];
             return (
               <div key={course.id} className="mobile-course-list-item">
                 <CourseCard
                   course={course}
                   isExpanded={isExpanded}
-                  onToggleExpand={() => toggleCourse(course.id)}
+                  onToggleExpand={() => toggleCourse && toggleCourse(course.id)}
                 />
 
                 {isExpanded && (

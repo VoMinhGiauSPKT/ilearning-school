@@ -1,30 +1,20 @@
-import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeading from '@/components/common/SectionHeading/SectionHeading';
 import Button from '@/components/common/Button/Button';
 import QuoteIcon from '@/components/common/QuoteIcon/QuoteIcon';
-import { instructorsList } from '@/data/homeData';
 import './_desktopInstructorSection.scss';
 
-export default function DesktopInstructorSection() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  const isFirstSlide = activeSlide === 0;
-  const isLastSlide = activeSlide === instructorsList.length - 1;
-
-  const prevSlide = () => {
-    if (!isFirstSlide) {
-      setActiveSlide((prev) => prev - 1);
-    }
-  };
-
-  const nextSlide = () => {
-    if (!isLastSlide) {
-      setActiveSlide((prev) => prev + 1);
-    }
-  };
-
-  const current = instructorsList[activeSlide];
+export default function DesktopInstructorSection({
+  instructors = [],
+  current,
+  activeSlide = 0,
+  setActiveSlide,
+  isFirstSlide = true,
+  isLastSlide = false,
+  prevSlide,
+  nextSlide,
+}) {
+  if (!current) return null;
 
   return (
     <section className="desktop-instructor-section">
@@ -56,12 +46,12 @@ export default function DesktopInstructorSection() {
 
           {/* Dots Pagination */}
           <div className="slider-dots">
-            {instructorsList.map((_, idx) => (
+            {instructors.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 className={`dot ${activeSlide === idx ? 'active' : ''}`}
-                onClick={() => setActiveSlide(idx)}
+                onClick={() => setActiveSlide && setActiveSlide(idx)}
                 aria-label={`Slide ${idx + 1}`}
               />
             ))}

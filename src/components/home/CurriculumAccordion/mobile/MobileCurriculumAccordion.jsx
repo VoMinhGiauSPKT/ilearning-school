@@ -1,18 +1,12 @@
-import { useState } from 'react';
 import Button from '@/components/common/Button/Button';
 import { curriculumStages } from '@/data/homeData';
 import './_mobileCurriculumAccordion.scss';
 
-export default function MobileCurriculumAccordion({ stages = curriculumStages }) {
-  const [openStages, setOpenStages] = useState({});
-
-  const toggleStage = (id) => {
-    setOpenStages((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
+export default function MobileCurriculumAccordion({
+  stages = curriculumStages,
+  openStages = {},
+  toggleStage,
+}) {
   return (
     <div className="mobile-curriculum-accordion-box">
       <h3 className="mobile-curriculum-title">Giáo trình</h3>
@@ -24,7 +18,7 @@ export default function MobileCurriculumAccordion({ stages = curriculumStages })
             <div key={stage.id} className="mobile-accordion-item">
               <button
                 className="mobile-accordion-header"
-                onClick={() => toggleStage(stage.id)}
+                onClick={() => toggleStage && toggleStage(stage.id)}
                 aria-expanded={isOpen}
               >
                 <span className="mobile-item-title">{stage.title}</span>
