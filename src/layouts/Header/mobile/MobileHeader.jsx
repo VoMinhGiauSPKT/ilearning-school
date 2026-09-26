@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, ShoppingBag } from 'lucide-react';
 import { navLinks } from '@/data/homeData';
 import logoSvg from '@/assets/logo/logo.svg';
 import Button from '@/components/common/Button/Button';
+import useCart from '@/hooks/useCart';
 import MobileDrawer from './MobileDrawer';
 import './_mobileHeader.scss';
 
 export default function MobileHeader() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalCount, toggleCart } = useCart();
 
   return (
     <header className="mobile-site-header">
@@ -22,8 +24,19 @@ export default function MobileHeader() {
           </div>
         </a>
 
-        {/* Mobile Actions: "Liên hệ tư vấn" + Hamburger Menu */}
+        {/* Mobile Actions: Cart + "Liên hệ tư vấn" + Hamburger Menu */}
         <div className="mobile-header-actions">
+          <button
+            type="button"
+            className="mobile-cart-btn"
+            onClick={toggleCart}
+            aria-label={`Giỏ hàng có ${totalCount} khoá học`}
+            title="Xem giỏ hàng"
+          >
+            <ShoppingBag size={20} />
+            {totalCount > 0 && <span className="mobile-cart-badge">{totalCount}</span>}
+          </button>
+
           <Button variant="primary" shape="square" className="mobile-consult-btn">
             Liên hệ tư vấn
           </Button>

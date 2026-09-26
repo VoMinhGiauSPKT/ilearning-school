@@ -30,7 +30,7 @@ export default function DesktopCoursesSection({
                 />
 
                 {isExpanded && (
-                  <CurriculumAccordion stages={course.curriculumStages} />
+                  <CurriculumAccordion stages={course.curriculumStages} course={course} />
                 )}
               </div>
             );

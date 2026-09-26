@@ -1,5 +1,6 @@
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ShoppingBag } from 'lucide-react';
 import Button from '@/components/common/Button/Button';
+import useCart from '@/hooks/useCart';
 import reactLogoImg from '@/assets/CourseCard/reactlogoartwork.png';
 import './_mobileCourseCard.scss';
 
@@ -8,6 +9,8 @@ export default function MobileCourseCard({
   isExpanded = false,
   onToggleExpand,
 }) {
+  const { addToCart } = useCart();
+
   if (!course) return null;
 
   return (
@@ -34,6 +37,17 @@ export default function MobileCourseCard({
         </ul>
 
         <div className="mobile-card-footer-action">
+          <Button
+            type="button"
+            variant="outline"
+            shape="rounded"
+            className="mobile-add-to-cart-btn"
+            onClick={() => addToCart(course)}
+            icon={<ShoppingBag size={16} />}
+          >
+            Thêm vào giỏ
+          </Button>
+
           <Button
             type="button"
             variant="primary"

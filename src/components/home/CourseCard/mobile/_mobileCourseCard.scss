@@ -83,6 +83,31 @@
     .mobile-card-footer-action {
       display: flex;
       align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .mobile-add-to-cart-btn {
+        height: 42px;
+        padding: 0 14px;
+        background-color: transparent;
+        border: 1.5px solid #15cca3;
+        border-radius: 10px;
+        color: #15cca3;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover,
+        &:active {
+          background-color: #15cca3;
+          color: #071511;
+        }
+      }
 
       .mobile-see-more-btn {
         width: auto;

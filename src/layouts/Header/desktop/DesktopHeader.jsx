@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Search, ChevronDown } from 'lucide-react';
+import { Search, ChevronDown, ShoppingBag } from 'lucide-react';
 import { navLinks } from '@/data/homeData';
 import logoSvg from '@/assets/logo/logo.svg';
 import Button from '@/components/common/Button/Button';
+import useCart from '@/hooks/useCart';
 import './_desktopHeader.scss';
 
 export default function DesktopHeader() {
   const [searchQuery, setSearchQuery] = useState('');
+  const { totalCount, toggleCart } = useCart();
 
   return (
     <header className="desktop-site-header">
@@ -32,7 +34,7 @@ export default function DesktopHeader() {
           </div>
         </div>
 
-        {/* Right: Desktop Navigation, Divider, Log In, SIGN */}
+        {/* Right: Desktop Navigation, Divider, Cart, Log In, SIGN */}
         <div className="header-right">
           <nav className="desktop-nav">
             <ul className="nav-list">
@@ -50,6 +52,18 @@ export default function DesktopHeader() {
           <span className="header-divider" aria-hidden="true" />
 
           <div className="header-auth-group">
+            {/* Nút Giỏ hàng với Badge */}
+            <button
+              type="button"
+              className="header-cart-btn"
+              onClick={toggleCart}
+              aria-label={`Giỏ hàng có ${totalCount} khoá học`}
+              title="Xem giỏ hàng"
+            >
+              <ShoppingBag size={22} />
+              {totalCount > 0 && <span className="cart-badge">{totalCount}</span>}
+            </button>
+
             <a href="#" className="login-link">
               Log In
             </a>

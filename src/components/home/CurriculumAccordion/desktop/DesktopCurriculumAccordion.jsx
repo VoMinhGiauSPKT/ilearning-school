@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button/Button';
+import useCart from '@/hooks/useCart';
 import { curriculumStages } from '@/data/homeData';
 import './_desktopCurriculumAccordion.scss';
 
@@ -6,7 +7,9 @@ export default function DesktopCurriculumAccordion({
   stages = curriculumStages,
   openStages = {},
   toggleStage,
+  course,
 }) {
+  const { addToCart } = useCart();
   return (
     <div className="desktop-curriculum-accordion-box">
       <h3 className="curriculum-title">Giáo trình</h3>
@@ -51,7 +54,12 @@ export default function DesktopCurriculumAccordion({
       </div>
 
       <div className="curriculum-action">
-        <Button variant="primary" shape="rounded" className="curriculum-register-btn">
+        <Button
+          variant="primary"
+          shape="rounded"
+          className="curriculum-register-btn"
+          onClick={() => course && addToCart(course)}
+        >
           Đăng ký ngay
         </Button>
       </div>

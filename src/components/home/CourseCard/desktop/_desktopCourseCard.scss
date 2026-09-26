@@ -92,6 +92,30 @@
     .card-footer-action {
       display: flex;
       align-items: center;
+      gap: 16px;
+
+      .add-to-cart-btn {
+        height: 70px;
+        padding: 0 28px;
+        background-color: transparent;
+        border: 2px solid #15cca3;
+        border-radius: 20px;
+        color: #15cca3;
+        font-size: 19px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover {
+          background-color: #15cca3;
+          color: #071511;
+          box-shadow: 0 4px 20px rgba(21, 204, 163, 0.4);
+        }
+      }
 
       .see-more-btn {
         width: 220px;

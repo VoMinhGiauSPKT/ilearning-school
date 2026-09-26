@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button/Button';
+import useCart from '@/hooks/useCart';
 import { curriculumStages } from '@/data/homeData';
 import './_mobileCurriculumAccordion.scss';
 
@@ -6,7 +7,9 @@ export default function MobileCurriculumAccordion({
   stages = curriculumStages,
   openStages = {},
   toggleStage,
+  course,
 }) {
+  const { addToCart } = useCart();
   return (
     <div className="mobile-curriculum-accordion-box">
       <h3 className="mobile-curriculum-title">Giáo trình</h3>
@@ -49,7 +52,12 @@ export default function MobileCurriculumAccordion({
       </div>
 
       <div className="mobile-curriculum-action">
-        <Button variant="primary" shape="rounded" className="mobile-curriculum-register-btn">
+        <Button
+          variant="primary"
+          shape="rounded"
+          className="mobile-curriculum-register-btn"
+          onClick={() => course && addToCart(course)}
+        >
           Đăng ký ngay
         </Button>
       </div>
