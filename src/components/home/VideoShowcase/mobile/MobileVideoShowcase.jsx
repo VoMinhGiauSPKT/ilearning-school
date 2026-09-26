@@ -1,8 +1,7 @@
 import { Subtitles, Maximize } from 'lucide-react';
-import videoThumb from '@/assets/VideoShowcase/videoshowcase.png';
 import './_mobileVideoShowcase.scss';
 
-export default function MobileVideoShowcase({ progress = 24, handleTrackClick }) {
+export default function MobileVideoShowcase({ progress = 24, handleTrackClick, videoThumb }) {
   return (
     <section className="mobile-video-showcase-section">
       <div className="mobile-video-container">

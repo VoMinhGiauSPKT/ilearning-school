@@ -1,8 +1,7 @@
 import { Settings, Subtitles, Maximize } from 'lucide-react';
-import videoThumb from '@/assets/VideoShowcase/videoshowcase.png';
 import './_desktopVideoShowcase.scss';
 
-export default function DesktopVideoShowcase({ progress = 24, handleTrackClick }) {
+export default function DesktopVideoShowcase({ progress = 24, handleTrackClick, videoThumb }) {
   return (
     <section className="desktop-video-showcase-section">
       <div className="container video-outer-container">

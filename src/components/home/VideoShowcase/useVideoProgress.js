@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import videoThumb from '@/assets/VideoShowcase/videoshowcase.png';
 
 export function useVideoProgress(initialProgress = 24) {
   const [progress, setProgress] = useState(initialProgress);
@@ -14,6 +15,7 @@ export function useVideoProgress(initialProgress = 24) {
     progress,
     setProgress,
     handleTrackClick,
+    videoThumb,
   };
 }
 
